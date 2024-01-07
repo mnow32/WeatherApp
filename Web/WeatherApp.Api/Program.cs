@@ -11,6 +11,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 //TODO: think if this is the best way to register this service
 builder.Services.AddTransient<IGeocodingService, GeocodingService>();
+builder.Services.AddTransient<IWeatherService, WeatherService>();
 
 var app = builder.Build();
 
