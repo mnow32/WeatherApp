@@ -1,4 +1,4 @@
-﻿using WeatherApp.Api.Models;
+﻿/*using WeatherApp.Api.Models;
 
 namespace WeatherApp.Api.Services
 {
@@ -31,3 +31,4 @@ namespace WeatherApp.Api.Services
         }
     }
 }
+*/

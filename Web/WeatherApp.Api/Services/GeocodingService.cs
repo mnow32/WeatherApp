@@ -1,4 +1,5 @@
 ﻿using WeatherApp.Api.Models;
+using System.Text.Json;
 
 namespace WeatherApp.Api.Services;
 
@@ -11,7 +12,7 @@ public class GeocodingService : IGeocodingService
         _clientFactory = clientFactory;
     }
 
-    public async Task<List<CityModel>> GetCitiesByName(string name)
+    public async Task<string> GetCitiesByName(string name)
     {
         List<CityModel>? cities = new();
         var client = _clientFactory.CreateClient();
@@ -27,6 +28,6 @@ public class GeocodingService : IGeocodingService
         {
 
         }
-        return cities;
+        return  JsonSerializer.Serialize<List<CityModel>>(cities);
     }
 }

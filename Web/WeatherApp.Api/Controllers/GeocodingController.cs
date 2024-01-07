@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 using WeatherApp.Api.Models;
 using WeatherApp.Api.Services;
 
@@ -9,7 +10,7 @@ namespace WeatherApp.Api.Controllers
     [ApiController]
     public class GeocodingController : ControllerBase
     {
-        private readonly IGeocodingService _geocodingService;
+        private readonly IGeocodingService _geocodingService;        
 
         public GeocodingController(IGeocodingService geocodingService)
         {
@@ -17,10 +18,11 @@ namespace WeatherApp.Api.Controllers
         }
 
         //TODO: Read more about this decorator
-        [HttpGet("city")]
+        [HttpGet()]
         public async Task<IActionResult> GetCitiesByName(string city)
         {
-            var response = await _geocodingService.GetCitiesByName(city);
+            var response = await _geocodingService.GetCitiesByName(city);            
+
             if (response is not null)
             {
                 return Ok(response);

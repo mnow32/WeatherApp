@@ -4,6 +4,6 @@ namespace WeatherApp.Api.Services
 {
     public interface IGeocodingService
     {
-        Task<List<CityModel>> GetCitiesByName(string name);
+        Task<string> GetCitiesByName(string name);
     }
 }
